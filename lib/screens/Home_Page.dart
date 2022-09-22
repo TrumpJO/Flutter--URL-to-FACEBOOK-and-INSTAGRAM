@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
         body: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Weclome to Home Page"), Icon(Ionicons.home)],
+            children: [Text("Weclome Page"), Icon(Ionicons.home)],
           ),
         ),
       ),
