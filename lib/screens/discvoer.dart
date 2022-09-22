@@ -101,7 +101,7 @@ class Discover extends StatelessWidget {
     void addAllBikesFor_MercedesBenz() {
       mercedesBenz_bikes.add(
         Bike(
-            model: "AMG-GTS",
+            model: "BIKE",
             brand: "MERCEDES BENZ",
             flag: 'de',
             price: 10000,
@@ -110,7 +110,7 @@ class Discover extends StatelessWidget {
       );
       mercedesBenz_bikes.add(
         Bike(
-            model: "AMG-C63",
+            model: "BIKE",
             brand: "MERCEDES BENZ",
             flag: 'de',
             price: 13000,
@@ -119,7 +119,7 @@ class Discover extends StatelessWidget {
       );
       mercedesBenz_bikes.add(
         Bike(
-            model: "C-CLASS",
+            model: "BIKE",
             brand: "MERCEDES BENZ",
             flag: 'de',
             price: 15500,
@@ -131,7 +131,7 @@ class Discover extends StatelessWidget {
     void addAllBikesFor_Ferrari() {
       yamaha_bikes.add(
         Bike(
-            model: "488 GTB",
+            model: "BIKE",
             brand: "Ferrari",
             price: 101,
             flag: 'it',
@@ -140,7 +140,7 @@ class Discover extends StatelessWidget {
       );
       yamaha_bikes.add(
         Bike(
-            model: "458 Spider",
+            model: "BIKE",
             brand: "Ferrari",
             price: 202,
             flag: 'it',
@@ -152,7 +152,7 @@ class Discover extends StatelessWidget {
     void addAllBikesFor_Porche() {
       yooshima_bikes.add(
         Bike(
-            model: "Cayman",
+            model: "BIKE",
             brand: "Porche",
             price: 111,
             flag: 'de',
