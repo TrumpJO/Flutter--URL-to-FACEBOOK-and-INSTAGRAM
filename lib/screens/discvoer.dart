@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:a_two/models/urlModel.dart';
+import 'package:a_two/models/vehicles/bike.dart';
 import 'package:a_two/models/vehicles/car.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -16,6 +17,7 @@ class Discover extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSide_Width = MediaQuery.of(context).size.width;
     var screenSide_Height = MediaQuery.of(context).size.height;
+
     List carsBrand = [];
     List mercedesBenz_cars = [];
     List ferrari_cars = [];
@@ -88,6 +90,81 @@ class Discover extends StatelessWidget {
     addAllCarsFor_MercedesBenz();
     addAllCarsFor_Ferrari();
     addAllCarsFor_Porche();
+
+    List bikesBrand = [];
+    List mercedesBenz_bikes = [];
+    List yamaha_bikes = [];
+    List yooshima_bikes = [];
+
+    bikesBrand.addAll([mercedesBenz_bikes, yamaha_bikes, yooshima_bikes]);
+
+    void addAllBikesFor_MercedesBenz() {
+      mercedesBenz_bikes.add(
+        Bike(
+            model: "AMG-GTS",
+            brand: "MERCEDES BENZ",
+            flag: 'de',
+            price: 10000,
+            imageURL:
+                "https://virtuoart.com/public/uploads/preview/09c657fa13bdd432dd5d28c6b4c8f30e-171574438370oxbgcev3r6.jpg"),
+      );
+      mercedesBenz_bikes.add(
+        Bike(
+            model: "AMG-C63",
+            brand: "MERCEDES BENZ",
+            flag: 'de',
+            price: 13000,
+            imageURL:
+                "https://purepng.com/public/uploads/large/purepng.com-white-mercedes-amg-c63-s-coupe-carcarvehicletransportmercedes-benzmercedes-amg-961524644163s7wbm.png"),
+      );
+      mercedesBenz_bikes.add(
+        Bike(
+            model: "C-CLASS",
+            brand: "MERCEDES BENZ",
+            flag: 'de',
+            price: 15500,
+            imageURL:
+                "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2018-mercedes-benz-AMG-C_63-S-Cabriolet.png"),
+      );
+    }
+
+    void addAllBikesFor_Ferrari() {
+      yamaha_bikes.add(
+        Bike(
+            model: "488 GTB",
+            brand: "Ferrari",
+            price: 101,
+            flag: 'it',
+            imageURL:
+                "https://www.pnglib.com/wp-content/uploads/2020/04/red-ferrari-488-gtb-car_5e91c617b1447.png"),
+      );
+      yamaha_bikes.add(
+        Bike(
+            model: "458 Spider",
+            brand: "Ferrari",
+            price: 202,
+            flag: 'it',
+            imageURL:
+                "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC30FRC171A021001.jpg"),
+      );
+    }
+
+    void addAllBikesFor_Porche() {
+      yooshima_bikes.add(
+        Bike(
+            model: "Cayman",
+            brand: "Porche",
+            price: 111,
+            flag: 'de',
+            imageURL:
+                "https://www.kindpng.com/picc/m/574-5744017_luxury-cars-for-less-porsche-cayman-white.png"),
+      );
+    }
+
+    addAllBikesFor_MercedesBenz();
+    addAllBikesFor_Ferrari();
+    addAllBikesFor_Porche();
+
     ListView structureVehiecles(List<dynamic> vehiclesBrand) {
       return ListView.builder(
         itemCount: vehiclesBrand.length,
@@ -154,10 +231,7 @@ class Discover extends StatelessWidget {
 
     iconTabs.addAll({
       Icon(Ionicons.car_sport): structureVehiecles(carsBrand),
-      Icon(Ionicons.bicycle): Image(
-        image: NetworkImage(
-            "https://th.bing.com/th/id/OIF.QUKFnHfXJqbRZTuMXlF6mA?pid=ImgDet&rs=1"),
-      ),
+      Icon(Ionicons.bicycle): structureVehiecles(bikesBrand),
       Icon(Ionicons.share_social): Column(
         children: [
           URlClass(
