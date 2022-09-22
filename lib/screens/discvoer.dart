@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:a_two/models/urlModel.dart';
+import 'package:a_two/models/vehicles/car.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ionicons/ionicons.dart';
@@ -15,9 +16,42 @@ class Discover extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSide_Width = MediaQuery.of(context).size.width;
     var screenSide_Height = MediaQuery.of(context).size.height;
+    List carsBrand = [];
+    List mercedesBenz_cars = [];
+    List ferrari_cars = [];
+    List porche_cars = [];
+    carsBrand.addAll([mercedesBenz_cars, ferrari_cars, porche_cars]);
+
+    mercedesBenz_cars.add(
+      Car(
+          model: "AMG-GTS",
+          brand: "MERCEDES BENZ",
+          flag: 'de',
+          price: 10000,
+          imageURL:
+              "https://virtuoart.com/public/uploads/preview/09c657fa13bdd432dd5d28c6b4c8f30e-171574438370oxbgcev3r6.jpg"),
+    );
+    mercedesBenz_cars.add(
+      Car(
+          model: "AMG-C63",
+          brand: "MERCEDES BENZ",
+          flag: 'de',
+          price: 13000,
+          imageURL:
+              "https://purepng.com/public/uploads/large/purepng.com-white-mercedes-amg-c63-s-coupe-carcarvehicletransportmercedes-benzmercedes-amg-961524644163s7wbm.png"),
+    );
+    mercedesBenz_cars.add(
+      Car(
+          model: "C-CLASS",
+          brand: "MERCEDES BENZ",
+          flag: 'de',
+          price: 15500,
+          imageURL:
+              "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2018-mercedes-benz-AMG-C_63-S-Cabriolet.png"),
+    );
     // ListView RED
     var cars = ListView.builder(
-      itemCount: 3,
+      itemCount: carsBrand.length,
       itemBuilder: (BuildContext context, int index) {
         // Scroll GREEN
         return Container(
@@ -25,40 +59,41 @@ class Discover extends StatelessWidget {
           height: screenSide_Height / 2.3,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 4,
+            itemCount: carsBrand[index].length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.fromLTRB(4, 4, 4, 8),
                 child: SizedBox(
                   width: screenSide_Width / 2,
                   child: Card(
-                    color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           padding: EdgeInsets.only(top: 0, right: 5),
-                          child: CircleFlag('de', size: 33),
+                          child: CircleFlag(mercedesBenz_cars[index].getFlag(),
+                              size: 33),
                           alignment: Alignment.topRight,
                         ),
                         SizedBox(
                           width: screenSide_Width / 2,
+                          height: screenSide_Height / 4,
                           child: Image(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                  "https://th.bing.com/th/id/R.b98b4d71e6aa2fb407f96b3e5099456f?rik=yuWyx1%2fQG2PN8A&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-2%2fWhite-Car-HD-Images-03598.jpg&ehk=S%2bKJrIMiQLFK2Xp9vcpCXmY6NYiuCoktgS7P6HHPcDM%3d&risl=&pid=ImgRaw&r=0")),
+                                  mercedesBenz_cars[index].getImageURL())),
                         ),
                         cardText(
-                          text: "Model",
+                          text: mercedesBenz_cars[index].getModel(),
                           fontSize: 18,
                         ),
                         cardText(
-                          text: "Brand",
+                          text: mercedesBenz_cars[index].getBrand(),
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                         cardText(
-                          text: "100\$",
+                          text: "${mercedesBenz_cars[index].getPrice()}\$",
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
