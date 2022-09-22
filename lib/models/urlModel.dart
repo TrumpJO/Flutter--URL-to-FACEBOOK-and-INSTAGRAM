@@ -1,6 +1,5 @@
 import 'dart:ffi';
 
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,14 +13,14 @@ Future<void> goToThisPage(String pageURL) async {
 class URlClass extends StatelessWidget {
   URlClass({
     required this.myfunction,
-    required this.carBrandsImage,
+    required this.myplatformIcon,
     required this.myplatformSubTitle,
     required this.myplatformTitle,
   });
 
   String? myplatformTitle;
   String? myplatformSubTitle;
-  String? carBrandsImage;
+  IconData? myplatformIcon;
   Function()? myfunction;
 
   @override
@@ -32,7 +31,7 @@ class URlClass extends StatelessWidget {
         ListTile(
           title: Text("$myplatformTitle"),
           subtitle: Text("$myplatformSubTitle"),
-          leading: Image.network("${carBrandsImage}")
+          leading: Icon(myplatformIcon),
         ),
       ]),
     );
