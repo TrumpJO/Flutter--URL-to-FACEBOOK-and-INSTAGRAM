@@ -275,11 +275,13 @@ class Discover extends StatelessWidget {
                           SizedBox(
                             width: screenSide_Width / 2,
                             height: screenSide_Height / 4,
-                            child: Image(
-                              fit: BoxFit.contain,
-                              image: NetworkImage(vehiclesBrand[columnIndex]
-                                      [index]
-                                  .getImageURL()),
+                            child: InteractiveViewer(
+                              child: Image(
+                                fit: BoxFit.contain,
+                                image: NetworkImage(vehiclesBrand[columnIndex]
+                                        [index]
+                                    .getImageURL()),
+                              ),
                             ),
                           ),
                           cardText(
@@ -310,7 +312,6 @@ class Discover extends StatelessWidget {
     }
 
     iconTabs.addAll({
-      
       Icon(Ionicons.car_sport): structureVehiecles(carsBrand),
       Icon(Ionicons.bicycle): structureVehiecles(bikesBrand),
       Icon(Ionicons.share_social): webPage
@@ -319,7 +320,6 @@ class Discover extends StatelessWidget {
     return DefaultTabController(
       length: iconTabs.length,
       child: Scaffold(
-        
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text("Vehicles"),
@@ -329,8 +329,6 @@ class Discover extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          
-          
           children: iconTabs.values.toList(),
         ),
       ),
