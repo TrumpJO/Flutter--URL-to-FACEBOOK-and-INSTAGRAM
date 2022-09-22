@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
                 Container(
                   child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+<<<<<<< HEAD
             children: [Text("Weclome to Home Page", style: TextStyle(color: Colors.white,fontSize: 24),), Icon(Ionicons.home,color: Colors.white,)],
                 ),
            ) ],
@@ -52,6 +53,10 @@ class _HomeState extends State<Home> {
            
             
     ),
+=======
+            children: [Text("Weclome to Home Page"), Icon(Ionicons.home)],
+          ),
+>>>>>>> 9c520344203a07e5128003678146b6538335824b
         ),
       ),
     );
