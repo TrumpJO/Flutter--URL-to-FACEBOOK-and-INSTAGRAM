@@ -16,6 +16,10 @@ class _HomeState extends State<Home> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 17, 17, 17),
+          leading: Image(image: NetworkImage("https://images-platform.99static.com//rdYHyMIjkhJGK_KMb6v9g9auPeQ=/224x229:774x779/fit-in/590x590/99designs-contests-attachments/113/113731/attachment_113731403"),),
+        
+          centerTitle: true,
           actions: [
             Center(
               child: IconButton(
@@ -28,15 +32,26 @@ class _HomeState extends State<Home> {
               ),
             )
           ],
-          title: Row(
+          title: Row( mainAxisAlignment: MainAxisAlignment.center,
             children: [Text("Home Page"), Icon(Icons.home)],
           ),
         ),
-        body: Center(
-          child: Row(
+        body:
+        
+        Container(
+          decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: NetworkImage("https://image.winudf.com/v2/image1/Y29tLkhEV2FsbHBhcGVyei5pbWFnZXMubG9ja3NjcmVlbi5CbGFja0NhcndhbGxwYXBlcnNfc2NyZWVuXzNfMTYxOTA2NDAzMV8wNTc/screen-3.jpg?fakeurl=1&type=.webp"))),
+          child: ListView( 
+              children: [
+                Container(
+                  child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Weclome Page"), Icon(Ionicons.home)],
-          ),
+            children: [Text("Weclome to Home Page", style: TextStyle(color: Colors.white,fontSize: 24),), Icon(Ionicons.home,color: Colors.white,)],
+                ),
+           ) ],
+                
+           
+            
+    ),
         ),
       ),
     );
