@@ -251,7 +251,7 @@ class Discover extends StatelessWidget {
         itemBuilder: (BuildContext context, int columnIndex) {
           // Scroll GREEN
           return Container(
-            color: Colors.grey.shade300,
+            color: Color.fromARGB(255, 0, 0, 0),
             height: screenSide_Height / 2.3,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -310,6 +310,7 @@ class Discover extends StatelessWidget {
     }
 
     iconTabs.addAll({
+      
       Icon(Ionicons.car_sport): structureVehiecles(carsBrand),
       Icon(Ionicons.bicycle): structureVehiecles(bikesBrand),
       Icon(Ionicons.share_social): webPage
@@ -318,13 +319,18 @@ class Discover extends StatelessWidget {
     return DefaultTabController(
       length: iconTabs.length,
       child: Scaffold(
+        
         appBar: AppBar(
-          title: Text("hi discvoer page"),
+          backgroundColor: Colors.black,
+          title: Text("Vehicles"),
+          centerTitle: true,
           bottom: TabBar(
             tabs: iconTabs.keys.toList(),
           ),
         ),
         body: TabBarView(
+          
+          
           children: iconTabs.values.toList(),
         ),
       ),
