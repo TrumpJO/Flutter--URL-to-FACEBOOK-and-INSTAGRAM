@@ -25,15 +25,21 @@ class URlClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: myfunction,
-      child: Column(children: [
-        ListTile(
-          title: Text("$myplatformTitle"),
-          subtitle: Text("$myplatformSubTitle"),
-          leading: Image.network("${carBrandsImage}"),
-        ),
-      ]),
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: GestureDetector(
+        onTap: myfunction,
+        child: Column(children: [
+          Card(
+            color: Colors.white.withAlpha(232),
+            child: ListTile(
+              title: Text("$myplatformTitle"),
+              subtitle: Text("$myplatformSubTitle"),
+              leading: Image.network("${carBrandsImage}"),
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }

@@ -319,6 +319,7 @@ class Discover extends StatelessWidget {
     return DefaultTabController(
       length: iconTabs.length,
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text("Vehicles"),
