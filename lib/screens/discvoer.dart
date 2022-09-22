@@ -11,10 +11,9 @@ import 'package:circle_flags/circle_flags.dart';
 class Discover extends StatelessWidget {
   Discover({super.key});
 
-  Map<Widget, Widget> iconTabs = {};
-
   @override
   Widget build(BuildContext context) {
+    Map<Widget, Widget> iconTabs = {};
     var screenSide_Width = MediaQuery.of(context).size.width;
     var screenSide_Height = MediaQuery.of(context).size.height;
 
