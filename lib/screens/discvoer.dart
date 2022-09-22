@@ -74,7 +74,7 @@ class Discover extends StatelessWidget {
           model: "Cayman",
           brand: "Porche",
           price: 111,
-          flag: 'it',
+          flag: 'de',
           imageURL:
               "https://www.kindpng.com/picc/m/574-5744017_luxury-cars-for-less-porsche-cayman-white.png"),
     );
