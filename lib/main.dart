@@ -1,3 +1,4 @@
+import 'package:a_two/screens/discvoer.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/Home_Page.dart';
@@ -14,6 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Home();
+    return Discover();
   }
 }
