@@ -49,17 +49,47 @@ class Discover extends StatelessWidget {
           imageURL:
               "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2018-mercedes-benz-AMG-C_63-S-Cabriolet.png"),
     );
+
+    ferrari_cars.add(
+      Car(
+          model: "488 GTB",
+          brand: "Ferrari",
+          price: 101,
+          flag: 'it',
+          imageURL:
+              "https://www.pnglib.com/wp-content/uploads/2020/04/red-ferrari-488-gtb-car_5e91c617b1447.png"),
+    );
+    ferrari_cars.add(
+      Car(
+          model: "458 Spider",
+          brand: "Ferrari",
+          price: 202,
+          flag: 'it',
+          imageURL:
+              "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC30FRC171A021001.jpg"),
+    );
+
+    porche_cars.add(
+      Car(
+          model: "Cayman",
+          brand: "Porche",
+          price: 111,
+          flag: 'it',
+          imageURL:
+              "https://www.kindpng.com/picc/m/574-5744017_luxury-cars-for-less-porsche-cayman-white.png"),
+    );
+
     // ListView RED
     var cars = ListView.builder(
       itemCount: carsBrand.length,
-      itemBuilder: (BuildContext context, int index) {
+      itemBuilder: (BuildContext context, int columnIndex) {
         // Scroll GREEN
         return Container(
           color: Colors.grey.shade300,
           height: screenSide_Height / 2.3,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: carsBrand[index].length,
+            itemCount: carsBrand[columnIndex].length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.fromLTRB(4, 4, 4, 8),
@@ -71,7 +101,7 @@ class Discover extends StatelessWidget {
                       children: [
                         Container(
                           padding: EdgeInsets.only(top: 0, right: 5),
-                          child: CircleFlag(mercedesBenz_cars[index].getFlag(),
+                          child: CircleFlag(carsBrand[columnIndex][index].getFlag(),
                               size: 33),
                           alignment: Alignment.topRight,
                         ),
@@ -79,21 +109,21 @@ class Discover extends StatelessWidget {
                           width: screenSide_Width / 2,
                           height: screenSide_Height / 4,
                           child: Image(
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                               image: NetworkImage(
-                                  mercedesBenz_cars[index].getImageURL())),
+                                  carsBrand[columnIndex][index].getImageURL())),
                         ),
                         cardText(
-                          text: mercedesBenz_cars[index].getModel(),
+                          text: carsBrand[columnIndex][index].getModel(),
                           fontSize: 18,
                         ),
                         cardText(
-                          text: mercedesBenz_cars[index].getBrand(),
+                          text: carsBrand[columnIndex][index].getBrand(),
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                         cardText(
-                          text: "${mercedesBenz_cars[index].getPrice()}\$",
+                          text: "${carsBrand[columnIndex][index].getPrice()}\$",
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
