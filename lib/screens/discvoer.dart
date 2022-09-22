@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:a_two/models/urlModel.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:circle_flags/circle_flags.dart';
 
 class Discover extends StatelessWidget {
   Discover({super.key});
@@ -12,62 +13,63 @@ class Discover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSide_Width = MediaQuery.of(context).size.width;
+    var screenSide_Height = MediaQuery.of(context).size.height;
     // ListView RED
     var cars = ListView.builder(
-      itemCount: 1,
+      itemCount: 3,
       itemBuilder: (BuildContext context, int index) {
         // Scroll GREEN
-        return SizedBox(
-          height: 120,
+        return Container(
+          color: Colors.grey.shade300,
+          height: screenSide_Height / 2.3,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 4,
             itemBuilder: (context, index) {
-              return Card(
-       elevation: 4.0,
-       child: Column(
-         children: [
-           ListTile(
-             title: Text("heading"),
-             subtitle: Text("subheading"),
-             trailing: Icon(Icons.favorite_outline),
-           ),
-           Container(
-             height: 200.0,
-             child: Text("Image "),
-           ),
-           Container(
-             padding: EdgeInsets.all(16.0),
-             alignment: Alignment.centerLeft,
-             child: Text("supportingText"),
-           ),
-           ButtonBar(
-             children: [
-               TextButton(
-                 child: const Text('CONTACT AGENT'),
-                 onPressed: () {/* ... /},
-               ),
-               TextButton(
-                 child: const Text('LEARN MORE'),
-                 onPressed: () {/ ... */},
-               )
-             ],
-           )
-         ],
-       ));
+              return Padding(
+                padding: EdgeInsets.fromLTRB(4, 4, 4, 8),
+                child: SizedBox(
+                  width: screenSide_Width / 2,
+                  child: Card(
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(top: 0, right: 5),
+                          child: CircleFlag('de', size: 33),
+                          alignment: Alignment.topRight,
+                        ),
+                        SizedBox(
+                          width: screenSide_Width / 2,
+                          child: Image(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://th.bing.com/th/id/R.b98b4d71e6aa2fb407f96b3e5099456f?rik=yuWyx1%2fQG2PN8A&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-2%2fWhite-Car-HD-Images-03598.jpg&ehk=S%2bKJrIMiQLFK2Xp9vcpCXmY6NYiuCoktgS7P6HHPcDM%3d&risl=&pid=ImgRaw&r=0")),
+                        ),
+                        cardText(
+                          text: "Model",
+                          fontSize: 18,
+                        ),
+                        cardText(
+                          text: "Brand",
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        cardText(
+                          text: "100\$",
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
             },
           ),
         );
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child: Row(
-        //     children: [
-        //       Card(
-        //         child: Text("data"),
-        //       )
-        //     ],
-        //   ),
-        // );
       },
     );
 
@@ -109,6 +111,24 @@ class Discover extends StatelessWidget {
           children: iconTabs.values.toList(),
         ),
       ),
+    );
+  }
+
+  Container cardText({
+    required String text,
+    double fontSize = 14,
+    FontWeight fontWeight = FontWeight.normal,
+  }) {
+    return Container(
+      padding: EdgeInsets.only(left: 10),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+        ),
+      ),
+      alignment: Alignment.centerLeft,
     );
   }
 }
