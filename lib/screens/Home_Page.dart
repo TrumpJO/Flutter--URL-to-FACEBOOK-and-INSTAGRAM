@@ -1,5 +1,6 @@
 import 'package:a_two/screens/discvoer.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,14 +18,14 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           actions: [
             Center(
-              child: ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return Discover();
-                    }));
-                  },
-                  icon: Icon(Icons.pages),
-                  label: Text("discover app")),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Discover();
+                  }));
+                },
+                icon: Icon(Ionicons.apps_outline),
+              ),
             )
           ],
           title: Row(
@@ -33,7 +34,8 @@ class _HomeState extends State<Home> {
         ),
         body: Center(
           child: Row(
-            children: [Text("Weclome to Home Page"), Icon(Icons.home)],
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text("Weclome to Home Page"), Icon(Ionicons.home)],
           ),
         ),
       ),

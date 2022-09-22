@@ -12,12 +12,72 @@ class Discover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ListView RED
+    var cars = ListView.builder(
+      itemCount: 1,
+      itemBuilder: (BuildContext context, int index) {
+        // Scroll GREEN
+        return SizedBox(
+          height: 120,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              return Card(
+       elevation: 4.0,
+       child: Column(
+         children: [
+           ListTile(
+             title: Text("heading"),
+             subtitle: Text("subheading"),
+             trailing: Icon(Icons.favorite_outline),
+           ),
+           Container(
+             height: 200.0,
+             child: Text("Image "),
+           ),
+           Container(
+             padding: EdgeInsets.all(16.0),
+             alignment: Alignment.centerLeft,
+             child: Text("supportingText"),
+           ),
+           ButtonBar(
+             children: [
+               TextButton(
+                 child: const Text('CONTACT AGENT'),
+                 onPressed: () {/* ... /},
+               ),
+               TextButton(
+                 child: const Text('LEARN MORE'),
+                 onPressed: () {/ ... */},
+               )
+             ],
+           )
+         ],
+       ));
+            },
+          ),
+        );
+        // SingleChildScrollView(
+        //   scrollDirection: Axis.horizontal,
+        //   child: Row(
+        //     children: [
+        //       Card(
+        //         child: Text("data"),
+        //       )
+        //     ],
+        //   ),
+        // );
+      },
+    );
+
     iconTabs.addAll({
-      Icon(Icons.phone): Image(
+      Icon(Ionicons.car_sport): cars,
+      Icon(Ionicons.bicycle): Image(
         image: NetworkImage(
             "https://th.bing.com/th/id/OIF.QUKFnHfXJqbRZTuMXlF6mA?pid=ImgDet&rs=1"),
       ),
-      Icon(Icons.laptop): Column(
+      Icon(Ionicons.share_social): Column(
         children: [
           URlClass(
             myfunction: () => goToThisPage('https://www.facebook.com'),
